@@ -1,5 +1,5 @@
 import generateStudyPlan from "../utils/studyPlanGenerator.js";
-import generateStudyPlanByOpenAI from "../services/openaiService.js";
+// import generateStudyPlanByOpenAI from "../services/openaiService.js";
 
 const plannerController = async (req, res) => {
   const { subjects, availableHoursPerDay } = req.body;
