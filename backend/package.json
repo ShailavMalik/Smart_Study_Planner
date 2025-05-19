@@ -5,14 +5,17 @@
   "main": "app/main.js",
   "scripts": {
     "dev": "nodemon app/main.js",
-    "prod": "node app/main.js"
+    "prod": "node app/main.js",
+    "build": "babel app -d dist"
   },
   "keywords": [],
   "author": "Shailav Malik",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@railway/cli": "^4.4.1"
+    "@railway/cli": "^4.4.1",
+    "@babel/cli": "^7.23.9",
+    "@babel/preset-env": "^7.23.9"
   },
   "dependencies": {
     "cors": "^2.8.5",
