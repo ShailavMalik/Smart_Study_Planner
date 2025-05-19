@@ -1,22 +1,32 @@
-// const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-// const userSchema = new mongoose.Schema({
-//   id: {
-//     type: Number,
-//     required: true,
-//     unique: true
-//   },
-//   name: {
-//     type: String,
-//     required: true
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true
-//   }
-// });
+const SubjectSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    examDate: {
+      type: Date,
+      required: true,
+    },
+    hours: {
+      type: Number,
+      required: true,
+      min: 1,
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-// const User = mongoose.model('User', userSchema);
+const Subject = mongoose.models.Subject || mongoose.model("Subject", SubjectSchema);
 
-// module.exports = User;
+export default Subject;

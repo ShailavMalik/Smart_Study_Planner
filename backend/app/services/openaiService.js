@@ -1,23 +1,21 @@
 // import generateStudyPlan from "../utils/studyPlanGenerator";
 
-const generateStudyPlanByOpenAI = (subjects, availableHoursPerDay) => {
+const generateStudyPlanByOpenAI = async (subjects, availableHoursPerDay) => {
   let plan = {};
 
-  // Call OpenAI API to generate study plan
-  // const response = await openai.chat.completions.create({
-  //   model: "gpt-4",
-  //   messages: [
-  //     {
-  //       role: "user",
-  //       content: JSON.stringify({ subjects, availableHoursPerDay }),
-  //     },
-  //   ],
-  // });
-  // return response.choices[0].message.content;
+  // use OpenAI API to improve the plan
+  // this includes considering the difficulty of the subjects, & user preferences
 
-  // let plan = generateStudyPlan(subjects, availableHoursPerDay);
-  
-  return plan;
+  const response = await openai.chat.completions.create({
+    model: "gpt-4",
+    messages: [
+      {
+        role: "user",
+        content: JSON.stringify({ subjects, availableHoursPerDay }),
+      },
+    ],
+  });
+  return response.choices[0].message.content;
 };
 
 export default generateStudyPlanByOpenAI;

@@ -6,22 +6,22 @@
   "scripts": {
     "dev": "nodemon app/main.js",
     "start": "node app/main.js"
-    
   },
   "keywords": [],
   "author": "Shailav Malik",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@railway/cli": "^4.4.1",
     "@babel/cli": "^7.23.9",
-    "@babel/preset-env": "^7.23.9"
+    "@babel/preset-env": "^7.23.9",
+    "@railway/cli": "^4.4.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dayjs": "^1.11.13",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongoose": "^8.15.0",
     "nodemon": "^3.1.10"
   }
 }
