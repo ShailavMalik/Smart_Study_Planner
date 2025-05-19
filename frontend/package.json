@@ -9,6 +9,10 @@
     "deploy": "netlify deploy --prod"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.17",
+    "@fullcalendar/interaction": "^6.1.17",
+    "@fullcalendar/react": "^6.1.17",
+    "@fullcalendar/timegrid": "^6.1.17",
     "dayjs": "^1.11.13",
     "firebase": "^11.7.3",
     "react": "^18.2.0",

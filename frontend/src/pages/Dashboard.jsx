@@ -4,6 +4,7 @@ import Footer from "../components/Reusable/Footer";
 import Timetable from "../components/Planner/Timetable";
 import useGeneratePlan from "../hooks/useGeneratePlan";
 import Sidebar from "../components/Reusable/Sidebar";
+import StudyCalendar from "../components/Planner/StudyCalendar";
 
 function Dashboard() {
   const [studyPlan, setStudyPlan] = useState(null);
@@ -22,7 +23,7 @@ function Dashboard() {
         {loading && <div>Loading...</div>}
         {studyPlan && <Timetable plan={studyPlan} />}
       </div>
-
+      <StudyCalendar studyPlan={studyPlan} />;
       <Footer />
     </div>
   );
