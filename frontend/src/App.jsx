@@ -1,17 +1,23 @@
-// import React from "react";
-// import SignIn from "./pages/SignIn/SignIn";
-// import SignUp from "./pages/SignUp/SignUp";
-import Home from "./pages/Home/Home";
-import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import { Route, Routes,Navigate } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from './contexts/authContext';
+import Contact from "./pages/Contact.jsx";
 
 function App() {
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} /> */}
-      </Routes>
+  const { user } = useContext(AuthContext);
+	return (
+		<div>
+    
+			<Routes>
+				<Route path='/' element={user ? <Dashboard /> : <Navigate to={"/login"} />} />
+				<Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
+				<Route path='/signup' element={user ? <Navigate to='/' /> : <Signup />} />
+				<Route path='*' element={<Navigate to={"/login"} />} />
+				<Route path='/contact' element={<Contact />} />
+        </Routes>
     </div>
   );
 }
