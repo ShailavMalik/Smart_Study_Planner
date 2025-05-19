@@ -1,10 +1,10 @@
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 import { Route, Routes,Navigate } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './contexts/authContext';
-import Contact from "./pages/Contact.jsx";
+import Contact from "./pages/Contact";
 
 function App() {
   const { user } = useContext(AuthContext);
