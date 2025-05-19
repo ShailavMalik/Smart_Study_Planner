@@ -11,7 +11,7 @@ const useGeneratePlan = () => {
       const safeSubjects = Array.isArray(subjects) ? subjects : [];
 
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/planner/generate`,
+        `${import.meta.env.VITE_API_URL}api/planner/generate`,
         {
           method: "POST",
           headers: {
