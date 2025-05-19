@@ -15,15 +15,35 @@ function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className="min-h-screen flex flex-col place-items-stretch">
       <Sidebar />
-      <div className="flex flex-col md:flex-row">
-        <SubjectForm onGenerate={handleGenerate} />
-
-        {loading && <div>Loading...</div>}
-        {studyPlan && <Timetable plan={studyPlan} />}
+      <div className="px-20">
+        <div className="flex flex-col items-center justify-center mt-10">
+          <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">
+            PlanWise - Study Planner
+          </h1>
+          <p className="text-sm sm:text-md md:text-lg text-gray-700 text-center max-w-2xl">
+            Create your personalized study plan and stay organized with our
+            intuitive planner.
+          </p>
+        </div>
       </div>
-      <StudyCalendar studyPlan={studyPlan} />;
+
+      <div className="flex items-stretch justify-stretch flex-col xl:items-start xl:flex-row">
+        <div className="mt-8 pl-8 flex-1 flex-col items-center  flex">
+          <SubjectForm onGenerate={handleGenerate} />
+          <div className="hidden xl:flex">
+            <StudyCalendar studyPlan={studyPlan} />
+          </div>
+        </div>
+        <div className="flex flex-1 ">
+          {loading && <div>Loading...</div>}
+          {studyPlan && <Timetable plan={studyPlan} />}
+        </div>
+        <div className="flex xl:hidden">
+          <StudyCalendar studyPlan={studyPlan} />
+        </div>
+      </div>
       <Footer />
     </div>
   );

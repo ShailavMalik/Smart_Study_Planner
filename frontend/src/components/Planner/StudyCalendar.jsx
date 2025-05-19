@@ -56,12 +56,12 @@ const convertPlanToEvents = (plan) => {
 
 export default function StudyCalendar({ studyPlan }) {
     if (!studyPlan) {
-        return <p>No study plan available ...</p>;
+        return <p className="py-10 text-center block w-full">No study plan available ...</p>;
     }
     const events = convertPlanToEvents(studyPlan);
 
     return (
-        <div className="max-w-3xl mx-auto bg-gradient-to-br from-blue-100 via-white to-pink-100 rounded-2xl p-6 shadow-xl">
+        <div className="max-w-md mt-8 mb-12 mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-2xl 2xl:max-w-3xl bg-gradient-to-br from-blue-100 via-white to-pink-100 rounded-2xl p-6 shadow-xl">
             <FullCalendar
                 plugins={[timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"

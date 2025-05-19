@@ -44,14 +44,16 @@ function SubjectForm({ onGenerate }) {
   }
 
   return (
-    <div className="mb-2 mt-10 ml-28 bg-gradient-to-br from-white via-blue-50 to-white rounded-2xl shadow-xl p-6 w-full max-w-md border border-blue-100 flex h-full items-center justify-center">
+    <div className="bg-gradient-to-br from-white via-blue-50 to-white rounded-2xl shadow-xl p-3 sm:p-6 w-full max-w-xs sm:max-w-md border border-blue-100 flex h-full items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="card w-full max-w-md shadow-lg bg-base-100 p-4">
-        <h2 className="text-2xl font-bold mb-4 text-center">Study Planner</h2>
-        <div className="form-control mb-4">
+        className="card w-full max-w-xs sm:max-w-md shadow-lg bg-base-100 p-2 sm:p-4 text-sm sm:text-base">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center">
+          Study Planner
+        </h2>
+        <div className="form-control mb-3 sm:mb-4">
           <label className="label">
-            <span className="label-text text-md font-semibold">
+            <span className="label-text text-sm sm:text-md font-semibold">
               Available Hours
             </span>
           </label>
@@ -61,7 +63,7 @@ function SubjectForm({ onGenerate }) {
             max={24}
             value={availableHours}
             onChange={(e) => setAvailableHours(e.target.value)}
-            className={`input input-bordered input-md ${
+            className={`input input-bordered input-sm sm:input-md ${
               errors.availableHours ? "input-error" : ""
             }`}
             placeholder="Hours per day"
@@ -77,7 +79,7 @@ function SubjectForm({ onGenerate }) {
         </div>
         <div>
           {/* Header row using flex */}
-          <div className="flex mb-1 font-semibold text-lg">
+          <div className="flex mb-1 font-semibold text-base sm:text-lg">
             <div className="flex-1 px-1">Subject</div>
             <div className="flex-1 px-1">Exam Date</div>
             <div style={{ width: "2.5rem" }}></div>
@@ -90,7 +92,7 @@ function SubjectForm({ onGenerate }) {
                 onChange={(e) =>
                   handleSubjectChange(idx, "subject", e.target.value)
                 }
-                className={`input input-bordered input-md flex-1 mr-2 ${
+                className={`input input-bordered input-sm sm:input-md flex-1 mr-2 ${
                   errors[`row${idx}`] && !row.subject ? "input-error" : ""
                 }`}
                 placeholder="Subject"
@@ -102,7 +104,7 @@ function SubjectForm({ onGenerate }) {
                 onChange={(e) =>
                   handleSubjectChange(idx, "examDate", e.target.value)
                 }
-                className={`input input-bordered input-md flex-1 mr-2 ${
+                className={`input input-bordered input-sm sm:input-md flex-1 mr-2 ${
                   errors[`row${idx}`] && !row.examDate ? "input-error" : ""
                 }`}
                 required
@@ -139,11 +141,13 @@ function SubjectForm({ onGenerate }) {
         </div>
         <button
           type="button"
-          className="btn btn-outline btn-sm  mt-2 mb-2"
+          className="btn btn-outline btn-xs sm:btn-sm mt-2 mb-2"
           onClick={addRow}>
           Add Subject
         </button>
-        <button type="submit" className="btn btn-primary btn-md w-full mt-1">
+        <button
+          type="submit"
+          className="btn btn-primary btn-sm sm:btn-md w-full mt-1">
           Generate Plan
         </button>
       </form>
