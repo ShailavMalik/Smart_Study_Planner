@@ -6,12 +6,12 @@ const useGeneratePlan = () => {
   const generatePlan = async (subjects, availableHoursPerDay) => {
     try {
       setLoading(true);
-      
-    // Defensive: ensure subjects is always an array
-    const safeSubjects = Array.isArray(subjects) ? subjects : [];
-    
+
+      // Defensive: ensure subjects is always an array
+      const safeSubjects = Array.isArray(subjects) ? subjects : [];
+
       const response = await fetch(
-        "http://localhost:3001/api/planner/generate",
+        `${import.meta.env.VITE_API_URL}/api/planner/generate`,
         {
           method: "POST",
           headers: {
@@ -19,7 +19,7 @@ const useGeneratePlan = () => {
           },
           body: JSON.stringify({
             subjects: safeSubjects.map((s) => ({
-              name: s.subject,        // ← use `subject`, not `.name`
+              name: s.subject,
               examDate: s.examDate,
             })),
             availableHoursPerDay: Number(availableHoursPerDay), // ensure it's a number
@@ -27,14 +27,13 @@ const useGeneratePlan = () => {
         }
       );
 
-
       if (!response.ok) {
         throw new Error("Failed to generate study plan");
       }
 
       const data = await response.json();
       console.log("Generated study plan:", data);
-      
+
       return data;
     } catch (error) {
       console.error("Error generating study plan:", error);
